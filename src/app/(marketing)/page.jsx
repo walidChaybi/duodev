@@ -10,6 +10,7 @@ import {
 } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function page() {
@@ -22,10 +23,10 @@ function page() {
         <h1 className="text-xl lg:text-3xl font-bold text-neutral-600 max-w-[480px] text-center">
           Learn, practice, and get better at coding interviews
         </h1>
-        <div>
+        <div className="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
           <ClerkLoaded>
             <SignedOut>
-              <div className=" flex flex-col items-center justify-center">
+              <div className=" flex flex-col items-center justify-center gap-6">
                 <SignUpButton
                   mode="modal"
                   afterSignUpUrl="/learn"
@@ -52,7 +53,9 @@ function page() {
             </SignedOut>
 
             <SignedIn>
-              <Button>Continue Learning</Button>
+              <Link href="/learn">
+                <Button>Continue Learning</Button>
+              </Link>
             </SignedIn>
           </ClerkLoaded>
         </div>
